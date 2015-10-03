@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Tile Smash</title>
+
+	<script src="../bin/pixi.min.js"></script>
+	<script src="globals.js"></script>
+	<script src="vector.js"></script>
+	<script src="collision.js"></script>
+	<script src="PlayerPaddle.js"></script>
+	<script src="GameLoop.js"></script>
+
+</head>
+<body>
+
+<script>
+
+//start the game
+function startGame(){
+	window.gameLoop = {};
+	window.gameLoop = new GameLoop();
+	window.gameLoop.run();
+}
+
+//preload all textures here
+//this ensures we dont start the game before the textures are in cache
+function preloadTextures() {
+	
+	// create a new loader
+	var loader = PIXI.loader;
+	loader.add('player_paddle', '../img/player_paddle.png');
+	
+	// callback to start game once assets are loaded
+	loader.once('complete', startGame);
+	
+	//begin load
+	loader.load();
+}
+
+preloadTextures();
+
+</script>
+
+</body>
+</html>
