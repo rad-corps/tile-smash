@@ -18,17 +18,6 @@ function GameLoop(){
 	self.player = new PlayerPaddle();
 	self.ball = new Ball();
 
-	//Generate Text Variables
-	self.txtGameOver = new PIXI.Text('Game Over - Refresh Page To Start Again', FONT_STYLE);
-	self.txtScore = new PIXI.Text('Score: ', FONT_STYLE);
-	self.txtYouWin = new PIXI.Text('YOU WIN!', FONT_STYLE);
-
-	//position Text Variables
-	self.txtScore.position.set(20, SCREEN_H - 40);
-
-	//player score variable
-	self.score = 0;
-
 	//create an array for the blocks (dont worry about a 2D array, blocks will hold their col and row positions)
 	self.blocks = [];
 
@@ -46,9 +35,8 @@ function GameLoop(){
 	}
 
 	//add the sprites to the stage (last added draws on top)
-	self.stage.addChild(self.player.sprite);
-	self.stage.addChild(self.ball.sprite);
-	self.stage.addChild(self.txtScore);
+	self.stage.addChild(this.player.sprite);
+	self.stage.addChild(this.ball.sprite);
 
 	//set the gamestate
 	gameState = 'playing';
@@ -80,7 +68,6 @@ function GameLoop(){
 
 					//remove the sprite from the scene
 					self.stage.removeChild(self.blocks[i].sprite);
-					self.score += 20;
 				}
 			}
 		}
@@ -102,8 +89,6 @@ function GameLoop(){
 
     		//check if ball collided with player
     		self.manageCollisions();
-
-    		self.txtScore.text = "Score: " + self.score;
 
     	}
 

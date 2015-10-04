@@ -11,8 +11,6 @@ const BLOCK_ROWS = 10;
 const BLOCK_COLS = 13;
 const BLOCK_X_MARGIN = 90;
 const BLOCK_Y_MARGIN = 50;
-const BALL_MAX_Y_VELOCITY = 10;
-const BALL_VELCITY_INCREASER = 0.2;
 
 const FONT_STYLE = {
 	align: 'center',

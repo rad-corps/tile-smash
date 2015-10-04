@@ -1,7 +1,7 @@
 //collision.js
 
 //No strong typing in JS, we are relying on the caller of this function to make sure position, width and height properties are populated
-function collisionCheck(sprite1, sprite2)
+function collisionManager(sprite1, sprite2)
 {
 	//find left, right, top and bottom of sprite1
 	var l1 = sprite1.position.x - sprite1.width /2;
@@ -17,20 +17,4 @@ function collisionCheck(sprite1, sprite2)
 		return false;
 	}
 	return true;
-}
-
-//use this to check which side the ball collided with AFTER we know there is a collision
-function checkCollisionSide(sprite1, sprite2)
-{
-	if(sprite1.position.y <= sprite2.position.y - (sprite2.height/2))
-  		return 'below';
-
-	if(sprite1.position.y >= sprite2.position.y + (sprite2.height/2))
-	  	return 'above';
-
-	if(sprite1.position.x < sprite2.position.x)
-	  	return 'left';
-
-	if(sprite1.position.x > sprite2.position.x)
-	  	return 'right';
 }

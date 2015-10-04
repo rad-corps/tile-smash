@@ -85,11 +85,6 @@ var vector2 = {
 		this._y /= val;
 	},
 
-	scaleBy: function(scalar) {
-		this._x *= scalar;
-		this._y *= scalar;
-	},
-
 	normalise: function() {
 		var mag = this.getLength();
 		this._x /= mag;

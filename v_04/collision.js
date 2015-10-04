@@ -18,19 +18,3 @@ function collisionCheck(sprite1, sprite2)
 	}
 	return true;
 }
-
-//use this to check which side the ball collided with AFTER we know there is a collision
-function checkCollisionSide(sprite1, sprite2)
-{
-	if(sprite1.position.y <= sprite2.position.y - (sprite2.height/2))
-  		return 'below';
-
-	if(sprite1.position.y >= sprite2.position.y + (sprite2.height/2))
-	  	return 'above';
-
-	if(sprite1.position.x < sprite2.position.x)
-	  	return 'left';
-
-	if(sprite1.position.x > sprite2.position.x)
-	  	return 'right';
-}
